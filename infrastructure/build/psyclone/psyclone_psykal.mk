@@ -119,15 +119,16 @@ $(WORKING_DIR)/%.x90 | $$(dir $$@) $(WORKING_DIR)/kernel
 .PRECIOUS: $(WORKING_DIR)/%.x90
 # Perform preprocessing for big X90 files.
 #
-ifeq ("$(FORTRAN_COMPILER)", "nvfortran")
+#ifeq ("$(FORTRAN_COMPILER)", "nvfortran")
+#DHC note - need to give an output arg with -o to preproc as using bespoke file extensions? - clear this up
 $(WORKING_DIR)/%.x90: $(SOURCE_DIR)/%.X90 | $$(dir $$@)
 	$(call MESSAGE,Preprocessing, $(subst $(SOURCE_DIR)/,,$<))
 	$Q$(FPP) $(FPPFLAGS) $(MACRO_ARGS) -o $@ $<
-else
-$(WORKING_DIR)/%.x90: $(SOURCE_DIR)/%.X90 | $$(dir $$@)
-	$(call MESSAGE,Preprocessing, $(subst $(SOURCE_DIR)/,,$<))
-	$Q$(FPP) $(FPPFLAGS) $(MACRO_ARGS) $< $@
-endif
+#else
+#$(WORKING_DIR)/%.x90: $(SOURCE_DIR)/%.X90 | $$(dir $$@)
+#	$(call MESSAGE,Preprocessing, $(subst $(SOURCE_DIR)/,,$<))
+#	$Q$(FPP) $(FPPFLAGS) $(MACRO_ARGS) $< $@
+#endif
 
 # Little x90 files are just copied to the workspace.
 #

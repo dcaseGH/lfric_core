@@ -5,7 +5,7 @@
 ##############################################################################
 export PROJECT_SOURCE = $(CORE_ROOT_DIR)/components/lfric-xios/source
 export IGNORE_DEPENDENCIES += xios icontext mod_wait mod_oasis
-export EXTERNAL_STATIC_LIBRARIES += xios
+export EXTERNAL_STATIC_LIBRARIES += xios psmile.MPI1 mct mpeu scrip
 export PRE_PROCESS_MACROS += USE_XIOS
 
 .PHONY: import-lfric-xios
